@@ -1,5 +1,6 @@
 import React from "react";
 import Background from "../assets/background.jpg";
+import { FaPlay } from "react-icons/fa";
 
 const Hero = () => {
   return (
@@ -25,7 +26,7 @@ const Hero = () => {
             Explore products
           </button>
           <button className="btn bg-white/20 hover:bg-white/30 text-white border-none rounded-xl">
-            Watch Demo
+          <FaPlay /> Watch Demo
           </button>
         </div>
       </div>

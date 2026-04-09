@@ -1,5 +1,6 @@
 import Hero from "./components/Hero";
 import Navbar from "./components/Navbar";
+import Stat from "./components/Stat";
 import { Suspense } from "react";
 import { useState } from "react";
 
@@ -11,6 +12,7 @@ function App() {
     <>
       <Navbar />
       <Hero />
+      <Stat />
     </>
   );
 }

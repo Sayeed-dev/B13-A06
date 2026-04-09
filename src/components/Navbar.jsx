@@ -38,7 +38,7 @@ const Navbar = () => {
             </ul>
           </div>
           <a className="btn btn-ghost normal-case text-xl font-bold tracking-tight text-white">
-            WorkBoard
+            Digi Tool
           </a>
         </div>
 
