@@ -4,6 +4,9 @@ import Stat from "./components/Stat";
 import { Suspense } from "react";
 import Product from "./components/Product";
 import { ToastContainer } from "react-toastify";
+import GetSarted from "./components/GetSarted";
+import Plan from "./components/Plan";
+import CallToAction from "./components/CallToAction";
 const toolsData = async () => {
   const response = await fetch("data.json");
   return response.json();
@@ -20,6 +23,9 @@ function App() {
       <Suspense fallback={<div>Loading...</div>}>
         <Product productData={productData} />
       </Suspense>
+      <GetSarted />
+      <Plan />
+      <CallToAction />
     </>
   );
 }
