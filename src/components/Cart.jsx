@@ -1,18 +1,18 @@
 import React from "react";
-import {  toast } from 'react-toastify';
-const Cart = ({ cartItems , setCartItems}) => {
+import { toast } from "react-toastify";
+const Cart = ({ cartItems, setCartItems }) => {
   const handleremove = (item) => {
-   const newCartItems = (cartItems.filter((c) => item.id !== c.id));
-   setCartItems(newCartItems);  
-   toast("Item removed from cart!");
-  }
+    const newCartItems = cartItems.filter((c) => item.id !== c.id);
+    setCartItems(newCartItems);
+    toast("Item removed from cart!");
+  };
   const handleProcced = () => {
     toast.success("Proceeding to checkout!");
-    setCartItems([]);
-  }
+    setCartItems = []; // Clear cart after checkout
+  };
   return (
     <div className="py-16">
-      <h1 className="text-center text-3xl font-bold text-[#00101f]">
+      <h1 className="text-center text-3xl font-bold text-[#00101f] mb-3">
         Cart Items
       </h1>
       {cartItems.length === 0 ? (
@@ -21,11 +21,11 @@ const Cart = ({ cartItems , setCartItems}) => {
           to your cart.
         </p>
       ) : (
-        <div >
+        <div>
           {cartItems.map((item, index) => (
             <div
               key={index}
-              className="w-full flex justify-between p-8 rounded-3xl bg-[#00101f] backdrop-blur-sm border border-white/10 shadow-2xl items-center"
+              className="w-full flex justify-between p-8 rounded-3xl bg-[#00101f] backdrop-blur-sm border border-white/10 shadow-2xl items-center mb-3"
             >
               <div className="space-y-3">
                 <h2 className="text-3xl font-bold text-white tracking-tight">
@@ -41,8 +41,12 @@ const Cart = ({ cartItems , setCartItems}) => {
                 <span className="text-base font-medium opacity-60">/Mo</span>
               </div>
 
-              <button onClick={() => handleremove(item)} className="btn btn-outline text-amber-50 rounded-full hover:bg-amber-50 hover:text-[#00101f]">Remove</button>
-
+              <button
+                onClick={() => handleremove(item)}
+                className="btn btn-outline text-amber-50 rounded-full hover:bg-amber-50 hover:text-[#00101f]"
+              >
+                Remove
+              </button>
             </div>
           ))}
 
@@ -51,7 +55,12 @@ const Cart = ({ cartItems , setCartItems}) => {
               Total: ${cartItems.reduce((total, item) => total + item.price, 0)}
             </h2>
           </div>
-          <button onClick={handleProcced} className="btn bg-[#00101f] text-white text-2xl rounded-full mt-8 py-6 px-5 text-center">Checkout</button>
+          <button
+            onClick={handleProcced}
+            className="btn bg-[#00101f] text-white text-2xl rounded-full mt-8 text-center w-xs mx-auto block "
+          >
+          Checkout
+          </button>
         </div>
       )}
     </div>
