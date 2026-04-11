@@ -1,12 +1,13 @@
 import React from "react";
 import { useState } from "react";
-const ProductCard = ({ product }) => {
+const ProductCard = ({ product, cartItems, setCartItems }) => {
   const [isBuying, setIsBuying] = useState(false);
   const handleBuyNow = () => {
     setIsBuying(true);
+    setCartItems([...cartItems, product]);
   };
   return (
-    <div>
+    <div className="">
       <div className="relative w-full max-w-sm p-8 rounded-3xl bg-[#00101f] backdrop-blur-sm border border-white/10 shadow-2xl space-y-7 group transition hover:scale-[1.01]">
         <div className="space-y-3">
           <h2 className="text-3xl font-bold text-white tracking-tight">

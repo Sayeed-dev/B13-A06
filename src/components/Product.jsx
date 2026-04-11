@@ -5,6 +5,7 @@ import Cart from "./Cart";
 const Product = ({ productData }) => {
   const data = use(productData);
   const [isCart, setIsCart] = useState(false);
+  const [cartItems, setCartItems] = useState([]);
 
   return (
     <div className="py-12">
@@ -21,7 +22,11 @@ const Product = ({ productData }) => {
           onClick={() => {
             setIsCart(false);
           }}
-          className={isCart ? `btn bg-white text-[#00101f] rounded-full border border-[#00101f] w-40` : `btn bg-[#00101f] text-white rounded-full w-40`}
+          className={
+            isCart
+              ? `btn bg-white text-[#00101f] rounded-full border border-[#00101f] w-40`
+              : `btn bg-[#00101f] text-white rounded-full w-40`
+          }
         >
           All Product
         </button>
@@ -29,17 +34,28 @@ const Product = ({ productData }) => {
           onClick={() => {
             setIsCart(true);
           }}
-          className={isCart ? `btn bg-[#00101f] text-white rounded-full w-40` : `btn bg-white text-[#00101f] rounded-full border border-[#00101f] w-40`}
+          className={
+            isCart
+              ? `btn bg-[#00101f] text-white rounded-full w-40`
+              : `btn bg-white text-[#00101f] rounded-full border border-[#00101f] w-40`
+          }
         >
           Cart Items
         </button>
       </div>
-      <div className="container mx-auto  px-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8 justify-items-center">
+      <div className={isCart ? "container mx-auto  px-4 flex flex-col gap-6 mt-8 justify-items-center" : "container mx-auto  px-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8 justify-items-center"}>
         {isCart ? (
-          <Cart />
+          <Cart cartItems={cartItems} setCartItems={setCartItems} />
         ) : (
           data.map((product) => (
-            <ProductCard key={product.id} product={product} />
+            <div className="">
+              <ProductCard
+                key={product.id}
+                product={product}
+                cartItems={cartItems}
+                setCartItems={setCartItems}
+              />
+            </div>
           ))
         )}
       </div>
