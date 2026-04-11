@@ -12,7 +12,7 @@ const Hero = () => {
         <button className="btn bg-white/20 hover:bg-white/30 text-white border-none rounded-full">
           New: AI-Powered Tools Available
         </button>
-        <h1 className="font-bold text-6xl leading-relaxed">
+        <h1 className="font-bold lg:text-6xl text-4xl leading-relaxed">
           Supercharge Your <br />
           Digital Workflow
         </h1>
