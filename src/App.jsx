@@ -7,6 +7,8 @@ import { ToastContainer } from "react-toastify";
 import GetSarted from "./components/GetSarted";
 import Plan from "./components/Plan";
 import CallToAction from "./components/CallToAction";
+import Footer from "./components/Footer";
+
 const toolsData = async () => {
   const response = await fetch("data.json");
   return response.json();
@@ -26,6 +28,7 @@ function App() {
       <GetSarted />
       <Plan />
       <CallToAction />
+      <Footer/>
     </>
   );
 }
