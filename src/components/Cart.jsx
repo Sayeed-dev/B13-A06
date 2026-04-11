@@ -1,9 +1,14 @@
 import React from "react";
-
+import {  toast } from 'react-toastify';
 const Cart = ({ cartItems , setCartItems}) => {
   const handleremove = (item) => {
    const newCartItems = (cartItems.filter((c) => item.id !== c.id));
    setCartItems(newCartItems);  
+   toast("Item removed from cart!");
+  }
+  const handleProcced = () => {
+    toast.success("Proceeding to checkout!");
+    setCartItems([]);
   }
   return (
     <div className="py-16">
@@ -36,7 +41,7 @@ const Cart = ({ cartItems , setCartItems}) => {
                 <span className="text-base font-medium opacity-60">/Mo</span>
               </div>
 
-              <button onClick={() => handleremove(item)} className="btn btn-outline text-amber-50 rounded-full">Remove</button>
+              <button onClick={() => handleremove(item)} className="btn btn-outline text-amber-50 rounded-full hover:bg-amber-50 hover:text-[#00101f]">Remove</button>
 
             </div>
           ))}
@@ -46,7 +51,7 @@ const Cart = ({ cartItems , setCartItems}) => {
               Total: ${cartItems.reduce((total, item) => total + item.price, 0)}
             </h2>
           </div>
-          <button className="btn bg-[#00101f] text-white text-2xl rounded-full mt-8 py-6 px-5 text-center">Checkout</button>
+          <button onClick={handleProcced} className="btn bg-[#00101f] text-white text-2xl rounded-full mt-8 py-6 px-5 text-center">Checkout</button>
         </div>
       )}
     </div>
