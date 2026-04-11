@@ -1,11 +1,13 @@
 import React from "react";
-
+import { useState } from "react";
 const ProductCard = ({ product }) => {
-  console.log(product);
+  const [isBuying, setIsBuying] = useState(false);
+  const handleBuyNow = () => {
+    setIsBuying(true);
+  };
   return (
     <div>
       <div className="relative w-full max-w-sm p-8 rounded-3xl bg-[#00101f] backdrop-blur-sm border border-white/10 shadow-2xl space-y-7 group transition hover:scale-[1.01]">
-
         <div className="space-y-3">
           <h2 className="text-3xl font-bold text-white tracking-tight">
             {product.title}
@@ -50,8 +52,11 @@ const ProductCard = ({ product }) => {
           ))}
         </ul>
 
-        <button className="w-full h-14 rounded-full bg-primary text-white text-lg font-bold tracking-wide shadow-primary-shadow transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] active:shadow-primary-active-shadow">
-          Buy Now
+        <button
+          onClick={handleBuyNow}
+          className="w-full h-14 rounded-full bg-primary text-white text-lg font-bold tracking-wide shadow-primary-shadow transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] active:shadow-primary-active-shadow"
+        >
+          {isBuying ? "Added to Cart" : "Buy Now"}
         </button>
       </div>
     </div>
